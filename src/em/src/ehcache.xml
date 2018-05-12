@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+	<!-- 
+		maxElementsInMemory: 缓存最大个数
+		eternal: 对象是否永久有效
+		timeToIdleSeconds：对象失效前允许闲置时间，当eternal=false时生效（单位：秒，0=无穷大）
+		timeToLiveSeconds：对象失败前允许存活时间
+		overflowToDisk：超出内存时写入磁盘
+		diskPersistent：是否缓存虚拟机重启期数据
+		diskExpiryThreadIntervalSeconds：磁盘失效线程运行时间间隔
+		memoryStoreEvictionPolicy：当达到maxElementsInMemory限制时，根据策略清理内存（LRU=最近最少用,FIFO=先进先出,LFU=较少使用）
+	 -->
+	<diskStore path="java.io.tmpdir/em" /><!-- user.home – 用户主目录|| user.dir – 用户当前工作目录|| java.io.tmpdir – 默认临时文件路径 -->
+	<defaultCache maxElementsInMemory="10000" eternal="false"
+		timeToIdleSeconds="120" timeToLiveSeconds="120"
+		overflowToDisk="true" diskPersistent="false"
+		diskExpiryThreadIntervalSeconds="120" memoryStoreEvictionPolicy="LRU" />
+	<cache name="SimplePageCachingFilter" maxElementsInMemory="10000"
+		 eternal="false" overflowToDisk="false" 
+		 timeToIdleSeconds="60" 
+		 timeToLiveSeconds="120" memoryStoreEvictionPolicy="LFU" />
+		
+	<!-- Test -->
+	<cache name="test" 
+           maxElementsInMemory="10000" 
+           overflowToDisk="true" 
+           eternal="true" 
+           timeToLiveSeconds="0" 
+           timeToIdleSeconds="0" 
+           diskPersistent="true" 
+           diskExpiryThreadIntervalSeconds="600"> 
+    </cache>
+    
+</ehcache>

@@ -1,0 +1,75 @@
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+
+	<description>My Functions</description>
+	<tlib-version>1.0</tlib-version>
+	<short-name>my</short-name>
+	<uri>/myFunctions</uri>
+
+	<!-- 这是对方法的定义，对方法的定义比较简单，只要该方法是公共的并且是静态的就可以了，该类也不需要继承什么类和接口 --> 
+	<function>
+	  	<name>toTimeStamp</name>
+	  	<function-class>com.em.tools.tag.MyFunctionTag</function-class>
+	  	<function-signature>java.lang.Long toTimeStamp(java.util.Date)</function-signature>
+  	</function>
+    
+    <!-- list - isContain -->
+    <function>
+        <name>isContain</name>
+        <function-class>com.em.tools.tag.MyFunctionTag</function-class>
+        <function-signature>java.lang.Boolean isContain(java.util.List, java.lang.Object)</function-signature>
+    </function>
+    
+    <!-- list - isContainObject -->
+    <function>
+        <name>isContainObject</name>
+        <function-class>com.em.tools.tag.MyFunctionTag</function-class>
+        <function-signature>java.lang.Boolean isContainObject(java.lang.String, java.lang.Object)</function-signature>
+    </function>
+    
+    <!-- replace -->
+    <function>
+        <name>replace</name>
+        <function-class>com.em.tools.tag.MyFunctionTag</function-class>
+        <function-signature>java.lang.String replace(java.lang.String, java.lang.String, java.lang.String)</function-signature>
+    </function>
+    
+    <!-- removeHtml -->
+    <function>
+        <name>removeHtml</name>
+        <function-class>com.em.tools.tag.MyFunctionTag</function-class>
+        <function-signature>java.lang.String removeHtml(java.lang.String)</function-signature>
+    </function>
+  	
+  	<!-- toEncode --> 
+	<function>
+	  	<name>toEncode</name>
+	  	<function-class>com.em.tools.tag.MyFunctionTag</function-class>
+	  	<function-signature>java.lang.String toEncode(java.lang.String)</function-signature>
+  	</function>
+  	
+  	<!-- diffDay --> 
+    <function>
+        <name>diffDay</name>
+        <function-class>com.em.tools.tag.MyFunctionTag</function-class>
+        <function-signature>java.lang.Integer diffDay(java.util.Date, java.util.Date)</function-signature>
+    </function>
+    
+    <!-- diffYear --> 
+    <function>
+        <name>diffYear</name>
+        <function-class>com.em.tools.tag.MyFunctionTag</function-class>
+        <function-signature>java.lang.Integer diffYear(java.util.Date, java.util.Date)</function-signature>
+    </function>
+    
+    <!-- hasPermission -->
+    <function>
+        <name>hasPermission</name>
+        <function-class>com.em.tools.tag.MyFunctionTag</function-class>
+        <function-signature>java.lang.Boolean hasPermission(java.lang.String)</function-signature>
+    </function>
+    
+</taglib>

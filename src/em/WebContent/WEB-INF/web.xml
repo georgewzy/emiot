@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.0"
+ xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	
+	<listener>
+		<listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+	</listener>
+	<filter>
+		<filter-name>ShiroFilter</filter-name>
+		<filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ShiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- Upload forward -->
+	<filter>
+		<filter-name>upfiles</filter-name>
+		<filter-class>com.em.tools.UpfilesFilter</filter-class>
+		<init-param>
+			<param-name>uploadUrl</param-name>
+			<param-value>/upload/</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>upfiles</filter-name>
+		<url-pattern>/sys/upload/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- JFinal -->
+ 	<filter>
+		<filter-name>jfinal</filter-name>
+		<filter-class>com.jfinal.core.JFinalFilter</filter-class>
+		<init-param>
+			<param-name>configClass</param-name>
+			<param-value>com.em.config.BaseConfig</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>jfinal</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+		
+	<!-- 验证码 -->
+	<!-- 
+	<servlet>
+		<servlet-name>jcaptchaFilter</servlet-name>
+		<servlet-class>com.em.tools.captcha.ImageCaptchaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jcaptchaFilter</servlet-name>
+		<url-pattern>/captcha.jpeg</url-pattern>
+	</servlet-mapping>
+	-->
+	 
+	<!-- Session过期时间 -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+</web-app>
